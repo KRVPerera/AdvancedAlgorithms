@@ -25,22 +25,3 @@ class Node(object):
         :return: return True if there is no parent, False if there is a parent
         """
         return not self.parent
-
-    def hasLeftChild(self):
-        """
-            Check whether the node has a left child or not
-        """
-        return self.leftChild
-
-    def hasRightChild(self):
-        """
-            Check whether the node has a right child or not
-        """
-        return self.rightChild
-
-    def hasAnyChildren(self):
-        """
-            Check whether the node has any child nodes
-            similar to the isLeaf
-        """
-        return self.rightChild or self.leftChild
