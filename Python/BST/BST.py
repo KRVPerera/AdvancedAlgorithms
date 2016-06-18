@@ -21,16 +21,17 @@ class BST(object):
     def __iter__(self):
         return self.root.__iter__()
 
-    def insert(self, value):
+    def insert(self, val):
         if self.root:
-            self._insert(value, self.root)
+            self._insert(val, self.root)
         else:
-            self.root = Node(value == value)
+            self.root = Node(value=val)
         self.size += 1
 
     def _insert(self, value, currentNode):
-        if value < currentNode.value:
+        if value <= currentNode.value:
             if currentNode.hasLeftChild():
+                print("has left child")
                 self._insert(value, currentNode.leftChild)
             else:
                 currentNode.leftChild = Node(value, parent=currentNode)
