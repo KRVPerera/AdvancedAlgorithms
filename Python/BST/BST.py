@@ -3,7 +3,8 @@
     This is a simple implementation of BST
     binary search tree
 """
-from node import Node
+
+from TreeNode import Node
 
 
 class BST(object):
@@ -22,9 +23,10 @@ class BST(object):
 
     def insert(self, value):
         if self.root:
-            self._put(value, self.root)
+            self._insert(value, self.root)
         else:
             self.root = Node(value == value)
+        self.size += 1
 
     def _insert(self, value, currentNode):
         if value < currentNode.value:
@@ -34,6 +36,6 @@ class BST(object):
                 currentNode.leftChild = Node(value, parent=currentNode)
         else:
             if currentNode.hasRightChild():
-                self._put(value, currentNode.rightChild)
+                self._insert(value, currentNode.rightChild)
             else:
                 currentNode.rightChild = Node(value, parent=currentNode)
