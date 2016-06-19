@@ -12,15 +12,21 @@ from TreeNode import Node
 
 
 class BST(object):
+    # property(fget=None, fset=None, fdel=None, doc=None) -> property attribute
     def __init__(self):
         self.root = None
-        self.size = 0
+        self._size = 0
 
+    @property
     def size(self):
-        return self.size
+        return self._size
+
+    @size.setter
+    def size(self, value):
+        self._size = value
 
     def __len__(self):
-        return self.size
+        return self._size
 
     def __iter__(self):
         return self.root.__iter__()

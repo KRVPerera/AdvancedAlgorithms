@@ -1,0 +1,11 @@
+red-black tree properties :
+1. Every node is either red or black.
+2. The root is black.
+3. Every leaf(NIL) is black.
+4. If a node is red then both its children are black. / Its parent should be black
+5. For each node, all the simple paths from the node to descendant leaves contain the same number of black nodes.
+
+black-height - bh(x) : The number of black nodes on any simple path from, but not including, a node x down to a leaf
+black-height of a red-black tree == black-height of the root
+sentinel - T.nil object with same attributes of an ordinary node, color is black
+            (usually pointers to nil are usually replaced by pointers to T.nil)
