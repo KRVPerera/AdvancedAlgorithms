@@ -1,9 +1,10 @@
 from unittest import TestCase
 import os, sys
+import random
+
 lib_path = os.path.abspath(os.path.join('..', 'basic'))
 sys.path.append(lib_path)
 
-import random
 from BST import BST
 from TreeFunctions import *
 from TreeNode import Node
