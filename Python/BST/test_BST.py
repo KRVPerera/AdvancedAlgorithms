@@ -1,5 +1,11 @@
 from unittest import TestCase
+import os, sys
+import random
+lib_path = os.path.abspath(os.path.join('..', 'basic'))
+sys.path.append(lib_path)
+
 from BST import BST
+from TreeWalk import inorderTreeWalk
 
 class TestBST(TestCase):
     def test_size_1(self):
@@ -18,6 +24,13 @@ class TestBST(TestCase):
         bst.insert(22)
         self.assertEqual(2, bst.size)
 
+    def test_inorder_traversal(self):
+        bst = BST()
+        listi = [x for x in range(50)]
+        random.shuffle(listi)
+        for j in listi:
+            bst.insert(j)
 
-    def test_insert(self):
-        pass
+        inorderTreeWalk(bst.root)
+        self.assertEqual(len(listi), bst.size)
+

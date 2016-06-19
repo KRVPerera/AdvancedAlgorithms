@@ -3,6 +3,10 @@
     This is a simple implementation of BST
     binary search tree
 """
+import os, sys
+
+lib_path = os.path.abspath(os.path.join('..', 'basic'))
+sys.path.append(lib_path)
 
 from TreeNode import Node
 
@@ -31,7 +35,6 @@ class BST(object):
     def _insert(self, value, currentNode):
         if value <= currentNode.value:
             if currentNode.hasLeftChild():
-                print("has left child")
                 self._insert(value, currentNode.leftChild)
             else:
                 currentNode.leftChild = Node(value, parent=currentNode)
