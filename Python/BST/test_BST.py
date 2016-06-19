@@ -5,9 +5,7 @@ sys.path.append(lib_path)
 
 import random
 from BST import BST
-from TreeFunctions import inorderTreeWalk
-from TreeFunctions import treeSearch
-from TreeFunctions import treeSearchIter
+from TreeFunctions import *
 
 class TestBST(TestCase):
     def test_size_1(self):
@@ -58,4 +56,20 @@ class TestBST(TestCase):
         node = treeSearch(bst.root, 32)
         self.assertIsNotNone(node)
         self.assertEqual(32, node.value)
+
+    def test_treeSuccessor(self):
+        bst = BST()
+        listi = [x for x in range(50)]
+        random.shuffle(listi)
+        for j in listi:
+            bst.insert(j)
+
+        nodeSearch = treeSearch(bst.root, 32)
+        self.assertIsNotNone(nodeSearch)
+        inorderTreeWalk(nodeSearch)
+        node = treeSuccessor(nodeSearch)
+        self.assertIsNotNone(node)
+        self.assertEqual(33, node.value)
+
+
 

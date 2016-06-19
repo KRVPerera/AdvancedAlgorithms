@@ -35,11 +35,11 @@ class BST(object):
     def _insert(self, value, currentNode):
         if value <= currentNode.value:
             if currentNode.hasLeftChild():
-                self._insert(value, currentNode.leftChild)
+                self._insert(value, currentNode.left)
             else:
-                currentNode.leftChild = Node(value, parent=currentNode)
+                currentNode.left = Node(value, parent=currentNode)
         else:
             if currentNode.hasRightChild():
-                self._insert(value, currentNode.rightChild)
+                self._insert(value, currentNode.right)
             else:
-                currentNode.rightChild = Node(value, parent=currentNode)
+                currentNode.right = Node(value, parent=currentNode)
