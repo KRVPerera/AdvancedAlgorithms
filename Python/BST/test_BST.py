@@ -40,11 +40,11 @@ class TestBST(TestCase):
         random.shuffle(listi)
         for j in listi:
             bst.insert(j)
-
+        searchValue = 40
         inorderTreeWalk(bst.root)
-        node = treeSearch(bst.root, 32)
+        node = treeSearch(bst.root, searchValue)
         self.assertIsNotNone(node)
-        self.assertEqual(32, node.value)
+        self.assertEqual(searchValue, node.value)
 
     def test_Search_Iter(self):
         bst = BST()
@@ -72,4 +72,16 @@ class TestBST(TestCase):
         self.assertEqual(33, node.value)
 
 
+    def test_MinMax_Recursive(self):
+        bst = BST()
+        listi = [x for x in range(50)]
+        random.shuffle(listi)
+        for j in listi:
+            bst.insert(j)
+        node = treeMinRecursive(bst.root)
+        node2 = treeMaxRecursive(bst.root)
+        self.assertIsNotNone(node)
+        self.assertEqual(0, node.value)
+        self.assertIsNotNone(node2)
+        self.assertEqual(49, node2.value)
 
