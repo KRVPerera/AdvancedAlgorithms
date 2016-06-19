@@ -1,11 +1,13 @@
 from unittest import TestCase
 import os, sys
-import random
 lib_path = os.path.abspath(os.path.join('..', 'basic'))
 sys.path.append(lib_path)
 
+import random
 from BST import BST
-from TreeWalk import inorderTreeWalk
+from TreeFunctions import inorderTreeWalk
+from TreeFunctions import treeSearch
+from TreeFunctions import treeSearchIter
 
 class TestBST(TestCase):
     def test_size_1(self):
@@ -33,4 +35,27 @@ class TestBST(TestCase):
 
         inorderTreeWalk(bst.root)
         self.assertEqual(len(listi), bst.size)
+
+    def test_Search(self):
+        bst = BST()
+        listi = [x for x in range(50)]
+        random.shuffle(listi)
+        for j in listi:
+            bst.insert(j)
+
+        inorderTreeWalk(bst.root)
+        node = treeSearch(bst.root, 32)
+        self.assertIsNotNone(node)
+        self.assertEqual(32, node.value)
+
+    def test_Search_Iter(self):
+        bst = BST()
+        listi = [x for x in range(50)]
+        random.shuffle(listi)
+        for j in listi:
+            bst.insert(j)
+
+        node = treeSearch(bst.root, 32)
+        self.assertIsNotNone(node)
+        self.assertEqual(32, node.value)
 
