@@ -91,3 +91,6 @@ ENV/
 # Pycharm
 **/.idea/workspace.xml 
 **/.idea/tasks.xml
+
+# user specific settings
+*.iws
