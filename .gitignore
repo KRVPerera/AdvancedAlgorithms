@@ -89,4 +89,5 @@ ENV/
 .ropeproject
 
 # Pycharm
-.idea/
+**/.idea/workspace.xml 
+**/.idea/tasks.xml
